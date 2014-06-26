@@ -90,16 +90,18 @@ function! s:Ack(cmd, args)
 
   if l:apply_mappings && &ft == "qf"
     if !exists("g:ack_autoclose") || !g:ack_autoclose
-      exec "nnoremap <buffer> <silent> q " . l:close_cmd
+      exec "nnoremap <buffer> <silent> q <C-W>p" . l:close_cmd
       exec "nnoremap <buffer> <silent> t <C-W><CR><C-W>T"
       exec "nnoremap <buffer> <silent> T <C-W><CR><C-W>TgT<C-W>j"
       exec "nnoremap <buffer> <silent> o <CR>"
       exec "nnoremap <buffer> <silent> O <CR><C-W><C-W>:ccl<CR>"
       exec "nnoremap <buffer> <silent> go <CR><C-W>j"
       exec "nnoremap <buffer> <silent> h <C-W><CR><C-W>K"
-      exec "nnoremap <buffer> <silent> H <C-W><CR><C-W>K<C-W>b"
+      exec "nnoremap <buffer> <silent> H <C-W><CR><C-W>J<C-W>b"
+      exec "nnoremap <buffer> <silent> <C-S> <C-W><CR><C-W>K<C-W>b"
       exec "nnoremap <buffer> <silent> v <C-W><CR><C-W>H<C-W>b<C-W>J<C-W>t"
       exec "nnoremap <buffer> <silent> gv <C-W><CR><C-W>H<C-W>b<C-W>J"
+      exec "nnoremap <buffer> <silent> <C-V> <C-W><CR><C-W>L<C-W>p<C-W>J"
     else
       exec "nnoremap <buffer> <silent> q " . l:close_cmd
       exec "nnoremap <buffer> <silent> t <C-W><CR><C-W>T" . l:close_cmd
